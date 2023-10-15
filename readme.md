@@ -1,4 +1,4 @@
-An educational program designed to teach students or developers how to use Flutter, a popular open-source framework for building cross-platform mobile applications. Flutter is developed by Google and allows developers to create apps that work on both Android and iOS platforms, as well as on the web and other platforms.
+This is an educational program designed by Dès Vu Technologies to teach students or developers how to use Flutter, a popular open-source framework for building cross-platform mobile applications. Flutter is developed by Google and allows developers to create apps that work on both Android and iOS platforms, as well as on the web and other platforms.
 
 Here's a general description of what you can expect to learn in a typical Flutter course:
 
