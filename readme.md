@@ -30,6 +30,5 @@ Here's a general description of what you can expect to learn in a typical Flutte
 
 14. **Best Practices and Optimization:** You'll learn best practices for optimizing the performance and user experience of your Flutter apps.
 
-15. **Community and Resources:** The course might also guide you on how to engage with the Flutter community and where to find resources for ongoing learning and support.
+15. **Community and Resources:** The course will also guide you on how to engage with the Flutter community and where to find resources for ongoing learning and support.
 
-Flutter courses can vary in duration and depth, from short online tutorials to comprehensive courses that cover everything from the basics to advanced topics. The choice of a course depends on your goals, experience level, and the type of mobile apps you want to develop.
