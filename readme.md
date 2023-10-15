@@ -1,15 +1,4 @@
 
-![322128979_1206863963518551_1486873230450111215_n-removebg-preview](https://github.com/Des-Vu-Technologies/Fly_with_flutter/assets/59717384/47a3c6aa-3c3f-4644-972e-ba76fbcf888a)
-
-
-
-![Dash,_the_mascot_of_the_Dart_programming_language](https://github.com/Des-Vu-Technologies/Fly_with_flutter/assets/59717384/df835cea-b291-46b5-8197-c338ba8a6d56)
-
-
-
-
-
-
 
 This is an educational program designed by Dès Vu Technologies to teach students or developers how to use Flutter, a popular open-source framework for building cross-platform mobile applications. Flutter is developed by Google and allows developers to create apps that work on both Android and iOS platforms, as well as on the web and other platforms.
 
