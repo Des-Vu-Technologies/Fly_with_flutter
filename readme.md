@@ -1,3 +1,7 @@
+
+![Beige_and_White_Boho_Summer_Adventure_Photo_Grid_Instagram_Story__1_-removebg-preview](https://github.com/Des-Vu-Technologies/Fly_with_flutter/assets/59717384/32a80f07-3546-40d8-a597-3bf2be4045f0)
+
+
 This is an educational program designed by Dès Vu Technologies to teach students or developers how to use Flutter, a popular open-source framework for building cross-platform mobile applications. Flutter is developed by Google and allows developers to create apps that work on both Android and iOS platforms, as well as on the web and other platforms.
 
 Here's a general description of what you can expect to learn in a this Flutter course:
@@ -32,3 +36,4 @@ Here's a general description of what you can expect to learn in a this Flutter c
 
 15. **Community and Resources:** The course will also guide you on how to engage with the Flutter community and where to find resources for ongoing learning and support.
 
+                                                                      © 2023 Dès Vu Technologies Pvt.Ltd
