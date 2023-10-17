@@ -12,11 +12,28 @@ class MyHomePage extends StatelessWidget {
           title: const Text('Custom Widget Example'),
         ),
         body: Center(
-          child: CustomButton(
-            text: 'Click Me',
-            onPressed: () {
-              // Your button's action here
-            },
+          child: Column(
+            children: [
+              CustomButton(
+                msg: 'Kali',
+                onPressed: () {
+                  // Your button's action here
+                },
+              ),
+             const SizedBox(height: 10,),
+              CustomButton(
+                msg: 'siro',
+                onPressed: () {
+                  // Your button's action here
+                },
+              ),
+              CustomButton(
+                msg: 'dalli',
+                onPressed: () {
+                  // Your button's action here
+                },
+              ),
+            ],
           ),
         ),
       ),
