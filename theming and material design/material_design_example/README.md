@@ -1,4 +1,4 @@
-# debugging_example
+# material_design_example
 
 A new Flutter project.
 
