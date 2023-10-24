@@ -77,5 +77,4 @@ In this example, the `Text` widget is centered both horizontally and vertically 
 By using the `Center` widget, you can ensure that your content is consistently centered, regardless of the screen size or the parent container's dimensions.
 
 Video:
-
-<iframe width="950" height="534" src="https://www.youtube.com/embed/ATMuWZCu1kA" title="Flutter Widgets: What is the Center Widget-Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+[Youtube](https://www.youtube.com/embed/ATMuWZCu1kA)
