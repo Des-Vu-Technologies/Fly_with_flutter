@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+
+import '../data/to_do_list.dart';
 
 class AddItemsPage extends StatefulWidget {
   const AddItemsPage({Key? key}) : super(key: key);
@@ -8,6 +12,10 @@ class AddItemsPage extends StatefulWidget {
 }
 
 class _AddItemsPageState extends State<AddItemsPage> {
+  // ignore: prefer_final_fields
+  TextEditingController? _taskController = TextEditingController();
+  String selectedCategory = "finance"; // Initialize with a default category
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,23 +56,49 @@ class _AddItemsPageState extends State<AddItemsPage> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 30.0, vertical: 16),
               child: TextFormField(
+                controller: _taskController,
+                //  onEditingComplete: ,
                 decoration: const InputDecoration(
                   border: UnderlineInputBorder(),
                   hintText: '|What are you planning today?',
                 ),
               ),
             ),
-            const RadioTextTil(
+            RadioTextTil(
               categoryText: "work",
+              selectedCategory: selectedCategory,
+              updateSelectedCategory: (category) {
+                setState(() {
+                  selectedCategory = category;
+                });
+              },
             ),
-            const RadioTextTil(
+            RadioTextTil(
               categoryText: "finance",
+              selectedCategory: selectedCategory,
+              updateSelectedCategory: (category) {
+                setState(() {
+                  selectedCategory = category;
+                });
+              },
             ),
-            const RadioTextTil(
+            RadioTextTil(
               categoryText: "personal",
+              selectedCategory: selectedCategory,
+              updateSelectedCategory: (category) {
+                setState(() {
+                  selectedCategory = category;
+                });
+              },
             ),
-            const RadioTextTil(
+            RadioTextTil(
               categoryText: "study",
+              updateSelectedCategory: (category) {
+                setState(() {
+                  selectedCategory = category;
+                });
+              },
+              selectedCategory: selectedCategory,
             ),
             const SizedBox(
               height: 15.0,
@@ -76,7 +110,32 @@ class _AddItemsPageState extends State<AddItemsPage> {
                 width: double.infinity,
                 color: Colors.grey,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // ignore: unnecessary_null_comparison
+                    if (_taskController!.text.isEmpty) {
+                      log(_taskController!.text.toString());
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                              "Text Field Cannot be empty and select a category too"),
+                        ),
+                      );
+                    } else {
+                      log(_taskController!.text.toString());
+                      toDoTasks.add({
+                        "task": _taskController!.text,
+                        "isDone": false,
+                        "category": selectedCategory
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("task added"),
+                        ),
+                      );
+                    }
+
+                    // ignore: unnecessary_null_comparison
+                  },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
                       Colors.grey,
@@ -105,14 +164,26 @@ class _AddItemsPageState extends State<AddItemsPage> {
   }
 }
 
-class RadioTextTil extends StatelessWidget {
-  final String? categoryText;
+// ignore: must_be_immutable
+class RadioTextTil extends StatefulWidget {
+  final String categoryText;
+  final String selectedCategory;
+  final Function(String) updateSelectedCategory;
 
-  const RadioTextTil({Key? key, this.categoryText}) : super(key: key);
+  const RadioTextTil({
+    Key? key,
+    required this.categoryText,
+    required this.selectedCategory,
+    required this.updateSelectedCategory,
+  }) : super(key: key);
 
   @override
+  State<RadioTextTil> createState() => _RadioTextTilState();
+}
+
+class _RadioTextTilState extends State<RadioTextTil> {
+  @override
   Widget build(BuildContext context) {
-    var selectedOption = 0;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 10.0),
       child: Container(
@@ -123,23 +194,27 @@ class RadioTextTil extends StatelessWidget {
           children: [
             Transform.scale(
               scale: 1.5,
-              child: Radio(
-                  value: 1,
-                  groupValue: selectedOption,
-                  activeColor: Colors.red,
-                  fillColor: MaterialStateProperty.all(
-                      Colors.blue), // You can set the desired color
-                  onChanged: (value) {}),
+              child: Radio<String>(
+                value: widget.categoryText,
+                groupValue: widget.selectedCategory,
+                activeColor: Colors.blue, // Color for the selected radio button
+                onChanged: (value) {
+                  setState(() {
+                    widget.updateSelectedCategory(value!);
+                  });
+                },
+              ),
             ),
             const SizedBox(
               width: 20.0,
             ),
             Text(
-              categoryText!.toUpperCase(),
+              widget.categoryText.toUpperCase(),
               style: const TextStyle(
-                  fontSize: 15.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
             ),
           ],
         ),
