@@ -1,11 +1,19 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import '../reusableWidgets/customListTile.dart';
 import 'add_item_page.dart';
 import '../data/to_do_list.dart';
 
-class DetailsPage extends StatelessWidget {
-  const DetailsPage({Key? key}) : super(key: key);
+class DetailsPage extends StatefulWidget {
+  final String? category;
+  const DetailsPage({Key? key, this.category}) : super(key: key);
 
+  @override
+  State<DetailsPage> createState() => _DetailsPageState();
+}
+
+class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,9 +52,9 @@ class DetailsPage extends StatelessWidget {
                 const SizedBox(
                   width: 10.0,
                 ),
-                const Text(
-                  "Finance",
-                  style: TextStyle(
+                Text(
+                  widget.category!,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 25.0,
                   ),
@@ -61,10 +69,24 @@ class DetailsPage extends StatelessWidget {
             child: ListView.builder(
               itemCount: toDoTasks.length,
               itemBuilder: (context, index) {
-                return CustomListTile(
-                  toDoTask: toDoTasks[index]['task'],
-                  isDone: toDoTasks[index]['isDone'],
-                );
+                return toDoTasks[index]['category']
+                        .contains(widget.category!.toLowerCase())
+                    ? CustomListTile(
+                        onTaskPressed: () => {
+                          setState(() {
+                            toDoTasks[index]['isDone'] == true
+                                ? toDoTasks[index]['isDone'] = false
+                                : toDoTasks[index]['isDone'] = true;
+                            log(toDoTasks.toString());
+                          })
+                        },
+                        toDoTask: toDoTasks[index]['task'],
+                        isDone: toDoTasks[index]['isDone'],
+                      )
+                    : const SizedBox(
+                        height: 0,
+                        width: 0,
+                      );
               },
             ),
           )
@@ -85,5 +107,3 @@ class DetailsPage extends StatelessWidget {
     );
   }
 }
-
-
