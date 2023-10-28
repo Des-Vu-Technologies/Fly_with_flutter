@@ -8,9 +8,11 @@ class CustomListTile extends StatelessWidget {
     Key? key,
     this.toDoTask,
     required this.isDone,
+    required this.onTaskPressed,
   }) : super(key: key);
   final String? toDoTask;
   bool isDone = false;
+  final VoidCallback onTaskPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class CustomListTile extends StatelessWidget {
         height: 100,
         child: Center(
           child: ListTile(
+            onTap: onTaskPressed,
             leading: Icon(
               Icons.circle_outlined,
               color: isDone ? isDoneColor : Colors.blue,

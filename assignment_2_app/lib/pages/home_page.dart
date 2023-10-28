@@ -88,7 +88,7 @@ class HomepageBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
                   CategoryCard(
-                    category: "Home",
+                    category: "Work",
                     noOfTasks: 3,
                   ),
                   CategoryCard(
