@@ -8,7 +8,7 @@ import 'cubit/todo_cubit.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: await getApplicationDocumentsDirectory(),
+    storageDirectory: await getTemporaryDirectory(),
   );
 
   runApp(const MyApp());
@@ -39,6 +39,7 @@ class TodoListScreen extends StatefulWidget {
 
 class _TodoListScreenState extends State<TodoListScreen> {
   final TextEditingController _taskController = TextEditingController();
+  final TextEditingController _taskController2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,8 @@ class _TodoListScreenState extends State<TodoListScreen> {
                   itemCount: state.tasks.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      title: Text(state.tasks[index]),
+                      leading: Text(state.tasks[index]["category"]),
+                      title: Text(state.tasks[index]["task"]),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
                         onPressed: () {
@@ -71,18 +73,34 @@ class _TodoListScreenState extends State<TodoListScreen> {
                 child: Row(
                   children: <Widget>[
                     Expanded(
-                      child: TextField(
-                        controller: _taskController,
-                        decoration:
-                            const InputDecoration(labelText: 'Add a task'),
+                      child: Column(
+                        children: [
+                          TextField(
+                            controller: _taskController,
+                            decoration:
+                                const InputDecoration(labelText: 'Add a task'),
+                          ),
+                          TextField(
+                            controller: _taskController2,
+                            decoration: const InputDecoration(
+                                labelText: 'Add a category'),
+                          ),
+                        ],
                       ),
                     ),
                     IconButton(
                       icon: const Icon(Icons.add),
                       onPressed: () {
                         final task = _taskController.text;
+                        final category = _taskController2.text;
                         if (task.isNotEmpty) {
-                          context.read<TodoCubit>().addTask(task);
+                          final task1 = {
+                            "task": task,
+                            "isDone": false,
+                            "category": category,
+                          };
+                          context.read<TodoCubit>().addTask(task1);
+
                           _taskController.clear();
                         }
                       },
