@@ -122,6 +122,7 @@ class _AddItemsPageState extends State<AddItemsPage> {
                       );
                     } else {
                       log(_taskController!.text.toString());
+
                       toDoTasks.add({
                         "task": _taskController!.text,
                         "isDone": false,
