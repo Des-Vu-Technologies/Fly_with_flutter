@@ -4,15 +4,15 @@ The `Column` widget is a versatile and commonly used layout widget in Flutter. I
 
 1. **`children`:** The `children` property is a list of widgets that you want to arrange vertically within the `Column`.
 
-2. **`mainAxisAlignment`: This property allows you to specify how the children should be aligned vertically. You can choose from options like `start` (top), `end` (bottom), `center`, `spaceBetween`, `spaceAround`, and more.
+2. **`mainAxisAlignment`:** This property allows you to specify how the children should be aligned vertically. You can choose from options like `start` (top), `end` (bottom), `center`, `spaceBetween`, `spaceAround`, and more.
 
-3. **`crossAxisAlignment`: This property controls how children should be aligned horizontally. Options include `start` (left), `end` (right), `center`, and `stretch`.
+3. **`crossAxisAlignment`:** This property controls how children should be aligned horizontally. Options include `start` (left), `end` (right), `center`, and `stretch`.
 
-4. **`mainAxisSize`: You can set this property to `MainAxisSize.min` to make the column's height fit the content tightly, or `MainAxisSize.max` to make it take up as much vertical space as possible.
+4. **`mainAxisSize`:** You can set this property to `MainAxisSize.min` to make the column's height fit the content tightly, or `MainAxisSize.max` to make it take up as much vertical space as possible.
 
-5. **`textDirection`: Used to control the text direction within the column, which is important for languages that are read from right to left (e.g., Arabic).
+5. **`textDirection`:** Used to control the text direction within the column, which is important for languages that are read from right to left (e.g., Arabic).
 
-6. **`verticalDirection`: Determines whether the children are stacked from top to bottom (default) or from bottom to top.
+6. **`verticalDirection`:** Determines whether the children are stacked from top to bottom (default) or from bottom to top.
 
 ### Example Usage:
 
