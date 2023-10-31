@@ -14,6 +14,35 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  Map<String, dynamic>? _lastRemovedTask;
+  int? _lastRemovedTaskIndex;
+
+  void _removeTask(int index) {
+    _lastRemovedTask = toDoTasks[index];
+    _lastRemovedTaskIndex = index;
+
+    setState(() {
+      toDoTasks.removeAt(index);
+    });
+
+    final snackBar = SnackBar(
+      duration: const Duration(seconds: 10),
+      content: const Text("Task removed"),
+      action: SnackBarAction(
+        label: "Undo",
+        onPressed: () {
+          if (_lastRemovedTask != null && _lastRemovedTaskIndex != null) {
+            setState(() {
+              toDoTasks.insert(_lastRemovedTaskIndex!, _lastRemovedTask!);
+            });
+          }
+        },
+      ),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,17 +100,36 @@ class _DetailsPageState extends State<DetailsPage> {
               itemBuilder: (context, index) {
                 return toDoTasks[index]['category']
                         .contains(widget.category!.toLowerCase())
-                    ? CustomListTile(
-                        onTaskPressed: () => {
-                          setState(() {
-                            toDoTasks[index]['isDone'] == true
-                                ? toDoTasks[index]['isDone'] = false
-                                : toDoTasks[index]['isDone'] = true;
-                            log(toDoTasks.toString());
-                          })
+                    ? Dismissible(
+                        key: Key(toDoTasks[index]["task"]),
+                        onDismissed: (direction) {
+                          // Handle task removal here
+                          _removeTask(index);
                         },
-                        toDoTask: toDoTasks[index]['task'],
-                        isDone: toDoTasks[index]['isDone'],
+                        direction: DismissDirection
+                            .endToStart, // Swipe from right to left
+                        background: Container(
+                          color: Colors.red,
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          alignment: Alignment.centerRight,
+                          child: const Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                          ),
+                        ),
+                        child: CustomListTile(
+                          index: index,
+                          onTaskPressed: () => {
+                            setState(() {
+                              toDoTasks[index]['isDone'] == true
+                                  ? toDoTasks[index]['isDone'] = false
+                                  : toDoTasks[index]['isDone'] = true;
+                              log(toDoTasks.toString());
+                            })
+                          },
+                          toDoTask: toDoTasks[index]['task'],
+                          isDone: toDoTasks[index]['isDone'],
+                        ),
                       )
                     : const SizedBox(
                         height: 0,
