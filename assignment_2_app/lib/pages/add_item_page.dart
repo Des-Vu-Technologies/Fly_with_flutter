@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../data/to_do_list.dart';
 
@@ -15,6 +14,29 @@ class _AddItemsPageState extends State<AddItemsPage> {
   // ignore: prefer_final_fields
   TextEditingController? _taskController = TextEditingController();
   String selectedCategory = "finance"; // Initialize with a default category
+  DateTime? selectedDate; // Add a variable to store the selected date
+
+  // Function to format the selected date as a string
+  String formatDate(DateTime? date) {
+    if (date == null) {
+      return 'Select Date';
+    }
+    return DateFormat('MM/dd/yyyy').format(date);
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime picked = (await showDatePicker(
+          context: context,
+          initialDate: selectedDate ?? DateTime.now(),
+          firstDate: DateTime(2023),
+          lastDate: DateTime(2030),
+        )) ??
+        DateTime.now();
+
+    setState(() {
+      selectedDate = picked;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +77,32 @@ class _AddItemsPageState extends State<AddItemsPage> {
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 30.0, vertical: 16),
-              child: TextFormField(
-                controller: _taskController,
-                //  onEditingComplete: ,
-                decoration: const InputDecoration(
-                  border: UnderlineInputBorder(),
-                  hintText: '|What are you planning today?',
-                ),
+              child: Column(
+                children: [
+                  TextFormField(
+                    controller: _taskController,
+                    //  onEditingComplete: ,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      hintText: '|What are you planning today?',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  TextFormField(
+                    readOnly: true, // Make the field read-only
+                    controller:
+                        TextEditingController(text: formatDate(selectedDate)),
+                    decoration: InputDecoration(
+                      hintText: 'Select Date',
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.calendar_today),
+                        onPressed: () => _selectDate(context),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             RadioTextTil(
@@ -111,31 +152,34 @@ class _AddItemsPageState extends State<AddItemsPage> {
                 color: Colors.grey,
                 child: ElevatedButton(
                   onPressed: () {
-                    // ignore: unnecessary_null_comparison
-                    if (_taskController!.text.isEmpty) {
-                      log(_taskController!.text.toString());
+                    // logic
+
+                    if (_taskController!.text.isEmpty || selectedDate == null) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text(
-                              "Text Field Cannot be empty and select a category too"),
+                              "Text Field and Date cannot be empty, and select a category too"),
                         ),
                       );
                     } else {
-                      log(_taskController!.text.toString());
-
                       toDoTasks.add({
                         "task": _taskController!.text,
                         "isDone": false,
-                        "category": selectedCategory
+                        "category": selectedCategory,
+                        "date": selectedDate!
+                            .toLocal()
+                            .toString(), // Add the selected date
                       });
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          content: Text("task added"),
+                          content: Text("Task added"),
                         ),
                       );
+                      _taskController!.clear();
+                      setState(() {
+                        selectedDate = null; // Clear the selected date
+                      });
                     }
-
-                    // ignore: unnecessary_null_comparison
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
