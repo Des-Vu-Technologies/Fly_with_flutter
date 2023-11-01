@@ -7,9 +7,11 @@ class CategoryCard extends StatelessWidget {
     Key? key,
     this.category,
     this.noOfTasks,
+    this.getTasks,
   }) : super(key: key);
   final String? category;
   final double? noOfTasks;
+  final double? getTasks;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,8 @@ class CategoryCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  DetailsPage(category: category!)),
+          MaterialPageRoute(
+              builder: (context) => DetailsPage(category: category!)),
         );
       },
       child: Material(

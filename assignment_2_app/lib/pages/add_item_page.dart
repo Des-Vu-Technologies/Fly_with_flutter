@@ -1,11 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../data/to_do_list.dart';
 
 class AddItemsPage extends StatefulWidget {
-  const AddItemsPage({Key? key}) : super(key: key);
-
+  const AddItemsPage({Key? key, this.selectedCategory}) : super(key: key);
+  final String? selectedCategory;
   @override
   State<AddItemsPage> createState() => _AddItemsPageState();
 }
@@ -13,8 +15,8 @@ class AddItemsPage extends StatefulWidget {
 class _AddItemsPageState extends State<AddItemsPage> {
   // ignore: prefer_final_fields
   TextEditingController? _taskController = TextEditingController();
-  String selectedCategory = "finance"; // Initialize with a default category
   DateTime? selectedDate; // Add a variable to store the selected date
+  String? selectedCategory;
 
   // Function to format the selected date as a string
   String formatDate(DateTime? date) {
@@ -36,6 +38,13 @@ class _AddItemsPageState extends State<AddItemsPage> {
     setState(() {
       selectedDate = picked;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    selectedCategory =
+        widget.selectedCategory; // Initialize with a default category
   }
 
   @override
@@ -107,7 +116,7 @@ class _AddItemsPageState extends State<AddItemsPage> {
             ),
             RadioTextTil(
               categoryText: "work",
-              selectedCategory: selectedCategory,
+              selectedCategory: selectedCategory!,
               updateSelectedCategory: (category) {
                 setState(() {
                   selectedCategory = category;
@@ -116,7 +125,7 @@ class _AddItemsPageState extends State<AddItemsPage> {
             ),
             RadioTextTil(
               categoryText: "finance",
-              selectedCategory: selectedCategory,
+              selectedCategory: selectedCategory!,
               updateSelectedCategory: (category) {
                 setState(() {
                   selectedCategory = category;
@@ -125,7 +134,7 @@ class _AddItemsPageState extends State<AddItemsPage> {
             ),
             RadioTextTil(
               categoryText: "personal",
-              selectedCategory: selectedCategory,
+              selectedCategory: selectedCategory!,
               updateSelectedCategory: (category) {
                 setState(() {
                   selectedCategory = category;
@@ -139,7 +148,7 @@ class _AddItemsPageState extends State<AddItemsPage> {
                   selectedCategory = category;
                 });
               },
-              selectedCategory: selectedCategory,
+              selectedCategory: selectedCategory!,
             ),
             const SizedBox(
               height: 15.0,
@@ -170,6 +179,7 @@ class _AddItemsPageState extends State<AddItemsPage> {
                             .toLocal()
                             .toString(), // Add the selected date
                       });
+                      log(toDoTasks.toString());
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text("Task added"),

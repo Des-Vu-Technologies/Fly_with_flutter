@@ -10,7 +10,9 @@ class CategoryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        
+      },
       child: Text(
         text!,
         textAlign: TextAlign.start,

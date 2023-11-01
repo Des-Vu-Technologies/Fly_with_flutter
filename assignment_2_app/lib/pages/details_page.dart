@@ -96,7 +96,7 @@ class _DetailsPageState extends State<DetailsPage> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: toDoTasks.length,
+              itemCount: toDoTasks.length, //4
               itemBuilder: (context, index) {
                 return toDoTasks[index]['category']
                         .contains(widget.category!.toLowerCase())
@@ -146,7 +146,9 @@ class _DetailsPageState extends State<DetailsPage> {
           onPressed: (() {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const AddItemsPage()),
+              MaterialPageRoute(
+                  builder: (context) => AddItemsPage(
+                      selectedCategory: widget.category!.toLowerCase())),
             );
           }),
           child: const Icon(Icons.add),
