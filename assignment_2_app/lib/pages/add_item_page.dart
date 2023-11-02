@@ -6,7 +6,10 @@ import 'package:intl/intl.dart';
 import '../data/to_do_list.dart';
 
 class AddItemsPage extends StatefulWidget {
-  const AddItemsPage({Key? key, this.selectedCategory}) : super(key: key);
+  const AddItemsPage({
+    Key? key,
+    this.selectedCategory,
+  }) : super(key: key);
   final String? selectedCategory;
   @override
   State<AddItemsPage> createState() => _AddItemsPageState();
@@ -44,7 +47,7 @@ class _AddItemsPageState extends State<AddItemsPage> {
   void initState() {
     super.initState();
     selectedCategory =
-        widget.selectedCategory; // Initialize with a default category
+        widget.selectedCategory!.toLowerCase(); // Initialize with a default category
   }
 
   @override

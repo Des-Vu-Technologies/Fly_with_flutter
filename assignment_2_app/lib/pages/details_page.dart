@@ -148,7 +148,8 @@ class _DetailsPageState extends State<DetailsPage> {
               context,
               MaterialPageRoute(
                   builder: (context) => AddItemsPage(
-                      selectedCategory: widget.category!.toLowerCase())),
+                        selectedCategory: widget.category,
+                      )),
             );
           }),
           child: const Icon(Icons.add),

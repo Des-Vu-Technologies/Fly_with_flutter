@@ -67,9 +67,7 @@ class HomePage extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
-                  builder: (context) =>
-                      const AddItemsPage(selectedCategory: "finance")),
+              MaterialPageRoute(builder: (context) => const AddItemsPage(selectedCategory: "finance",)),
             );
           },
           child: const Icon(Icons.add),
