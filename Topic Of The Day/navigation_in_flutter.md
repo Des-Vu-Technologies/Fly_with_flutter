@@ -4,6 +4,8 @@ Navigation in a Flutter app is a crucial aspect for moving between different scr
 
    ```dart
    // Push to a new screen
+
+   //first screen --button move to second ===second screen
    Navigator.push(
      context,
      MaterialPageRoute(builder: (context) => SecondScreen()),
