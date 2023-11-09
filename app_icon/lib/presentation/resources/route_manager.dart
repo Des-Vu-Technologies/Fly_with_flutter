@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
 import '../details/details_view.dart';
 import '../home/home_view.dart';
 import '../login/login_view.dart';
