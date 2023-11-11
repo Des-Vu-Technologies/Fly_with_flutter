@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     onGenerateRoute: RouteGenerator.getRoutes,
     initialRoute: Routes.initial,
   ));
