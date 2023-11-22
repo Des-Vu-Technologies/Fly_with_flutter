@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../details/details_view.dart';
 import '../home/home_view.dart';
 import '../login/login_view.dart';
+import '../onBoarding/on_boarding_view.dart';
 import '../signup/sign_up.dart';
 import '../splash/splash.dart';
 
@@ -12,6 +13,7 @@ class Routes {
   static const String signup = '/signup';
   static const String home = '/home';
   static const String details = '/details';
+  static const String onBoarding = '/onBoarding';
 }
 
 class RouteGenerator {
@@ -21,6 +23,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SplashView());
       case Routes.signup:
         return MaterialPageRoute(builder: (_) => const SignUpView());
+      case Routes.onBoarding:
+        return MaterialPageRoute(builder: (_) => OnboardingPage());
       case Routes.login:
         return MaterialPageRoute(builder: (_) => const LogInView());
       case Routes.home:
