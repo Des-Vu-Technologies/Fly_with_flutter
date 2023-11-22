@@ -18,16 +18,20 @@ class MyApp extends StatelessWidget {
       appBar: AppBar(
         title: const Text("App Bar"),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             // ignore: sized_box_for_whitespace
-            DogName(name: "Kali",),
+            DogName(
+              name: "Kali",
+            ),
             Space(),
-            DogName(name: "Sero",),
+            DogName(
+              name: "Sero",
+            ),
             Space(),
-            DogName(name:"Dalli")
+            DogName(name: "Dalli")
           ],
         ),
       ),
@@ -35,6 +39,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
