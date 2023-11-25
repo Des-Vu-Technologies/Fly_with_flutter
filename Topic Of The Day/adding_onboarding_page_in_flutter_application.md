@@ -57,7 +57,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  List<Widget> _onboardingScreens = [
+  List<OnboardingScreen> _onboardingScreens = [
     OnboardingScreen(
       title: 'Welcome to MyApp',
       description: 'Discover amazing features!',
@@ -68,8 +68,18 @@ class _OnboardingPageState extends State<OnboardingPage> {
       description: 'Get started with our app!',
       imagePath: 'assets/images/onboarding_image_2.png',
     ),
+    OnboardingScreen(
+      title: 'Explore and Enjoy',
+      description: 'Get started with our app!',
+      imagePath: 'assets/images/onboarding_image_3.png',
+    ),
     // Add more OnboardingScreen widgets as needed
   ];
+
+  void initstate(){
+
+    super.start();
+  }
 
   @override
   void dispose() {
@@ -91,7 +101,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             _currentPage = page;
           });
         },
-      ),
+      ), 
       // You can add navigation buttons, indicators, or skip buttons here
     );
   }
