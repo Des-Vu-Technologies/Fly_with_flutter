@@ -1,4 +1,4 @@
-Sure, working with APIs in Flutter involves making HTTP requests to communicate with servers and retrieve data. Flutter offers various packages to simplify this process, such as `http`, `dio`, `retrofit`, and others. Here's a basic guide on how to work with APIs in Flutter using the `http` package as an example:
+Working with APIs in Flutter involves making HTTP requests to communicate with servers and retrieve data. Flutter offers various packages to simplify this process, such as `http`, `dio`, `retrofit`, and others. Here's a basic guide on how to work with APIs in Flutter using the `http` package as an example:
 
 ### Step 1: Add the `http` package to `pubspec.yaml`:
 
