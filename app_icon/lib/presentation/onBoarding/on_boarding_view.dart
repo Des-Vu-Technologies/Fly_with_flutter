@@ -47,10 +47,12 @@ class OnboardingScreen extends StatelessWidget {
   }
 }
 
+
 class OnboardingPage extends StatefulWidget {
   @override
   _OnboardingPageState createState() => _OnboardingPageState();
 }
+
 
 class _OnboardingPageState extends State<OnboardingPage> {
   final PageController _pageController = PageController();
@@ -150,16 +152,16 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
 
                   //radios
-
-                  Row(
-                    children: [
-                      for (int i = 0; i < _onboardingScreens.length; i++)
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: _getProperBottons(i, _currentPage),
-                        )
-                    ],
-                  ),
+                  
+                          Row(
+                            children: [
+                              for (int i = 0; i < _onboardingScreens.length; i++)
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: _getProperBottons(i, _currentPage),
+                                )
+                            ],
+                          ),
 
                   //forward icon
 
