@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import '../http_service.dart';
-import '../model/user.dart';
+import '../model/single_user.dart';
 
 class SingleUserScreen extends StatefulWidget {
   const SingleUserScreen({super.key});
@@ -18,7 +18,7 @@ class SingleUserScreen extends StatefulWidget {
 class _SingleUserScreenState extends State<SingleUserScreen> {
   late HttpService http;
 
-  User? user;
+  SingleUser? user;
 
   bool isLoading = false;
 
@@ -30,8 +30,8 @@ class _SingleUserScreenState extends State<SingleUserScreen> {
 
       if (response.statusCode == 200) {
         setState(() {
-          user = User.fromJson(
-              response.data); // Assuming User.fromJson() method exists
+          user = SingleUser.fromJson(
+              response.data); // json-->> object deserialization
         });
       } else {
         log("Request failed with status code: ${response.statusCode}");

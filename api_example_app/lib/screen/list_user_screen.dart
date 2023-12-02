@@ -27,9 +27,8 @@ class _ListUserScreenState extends State<ListUserScreen> {
     Response response;
     try {
       isLoading = true;
-      log("inside getListUser");
+
       response = await http.getRequest("/api/users?page=2");
-      log(response.data.toString());
 
       isLoading = false;
 
