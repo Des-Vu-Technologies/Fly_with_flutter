@@ -82,7 +82,7 @@ class NewsCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
                     article.description ?? '',
                     style: const TextStyle(
