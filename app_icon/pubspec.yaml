@@ -64,7 +64,6 @@ flutter:
     - assets/images/onboardingimg3.svg
     - assets/images/onboardingimg4.svg
     - assets/images/circleSolidBottomAppbarBoarding.svg
-    - assets/images/circleHollowBottomAppbarBoarding.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
