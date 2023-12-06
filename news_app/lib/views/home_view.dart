@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:news_app/views/details_page.dart';
 
 import '../controller/news_controller.dart';
 import '../model/news_model.dart';
@@ -35,7 +36,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(title: const Text("News App"),),
       body: ListView.builder(itemBuilder: (context, index) {
-        return NewsCard(article: articles![index]);
+        return GestureDetector(
+          onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailsPage(articles![index] )));
+          },
+          child: NewsCard(article: articles![index]));
       }),
     );
   }
