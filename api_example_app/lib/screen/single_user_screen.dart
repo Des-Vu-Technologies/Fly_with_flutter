@@ -29,10 +29,14 @@ class _SingleUserScreenState extends State<SingleUserScreen> {
       isLoading = false;
 
       if (response.statusCode == 200) {
-        setState(() {
-          user = SingleUser.fromJson(
-              response.data); // json-->> object deserialization
-        });
+        log(isLoading.toString());
+
+        user = SingleUser.fromJson(
+            response.data); // json-->> object deserialization
+        setState(() {});
+
+
+        
       } else {
         log("Request failed with status code: ${response.statusCode}");
         // Handle other status codes if needed

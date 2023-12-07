@@ -33,7 +33,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("News App"),),
+      appBar: AppBar(
+        title: const Text("News App"),
+      ),
       body: ListView.builder(itemBuilder: (context, index) {
         return NewsCard(article: articles![index]);
       }),
@@ -82,7 +84,7 @@ class NewsCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Text(
                     article.description ?? '',
                     style: const TextStyle(
