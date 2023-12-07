@@ -7,12 +7,10 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 class HttpService {
   Dio? _dio;
 
-  final baseUrl = "https://reqres.in";
+  final baseUrl = "https://reqres.in/";
 
   HttpService() {
-    _dio = Dio(BaseOptions(
-      baseUrl: baseUrl,
-    ));
+    _dio = Dio(BaseOptions(baseUrl: baseUrl));
 
     initializeInterceptors();
   }
@@ -21,7 +19,6 @@ class HttpService {
     Response? res;
 
     try {
-      log(endPoint);
       res = await _dio!.get(endPoint);
       log("Response Status Code: ${res.statusCode}");
 
@@ -39,12 +36,6 @@ class HttpService {
   }
 
   initializeInterceptors() {
-    _dio!.interceptors.add(PrettyDioLogger(
-      requestHeader: true,
-      requestBody: true,
-      responseBody: true,
-      responseHeader: false,
-      compact: false,
-    ));
+    _dio!.interceptors.add(PrettyDioLogger(maxWidth: 90));
   }
 }
