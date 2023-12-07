@@ -20,17 +20,12 @@ class NewsController {
     Response response;
     try {
       response = await http.getRequest("");
-      log("getrequest ma rokeyo kii nai");
+      log("getrequest ");
       NewsModel newsModel = NewsModel.fromJson(response.data);
-      // Responsee myResponse = Responsee(newsModel);
 
       articles = newsModel.articles;
 
-      // myResponse.person.fold(
-      //   (failure) => print('Failed : ${failure.message}'),
-      //   (person) => print('Response : ${person.name}'),
-      // );
-
+     
       if (response.statusCode == 200) {
         log("response code :${articles!.length}");
       } else {
