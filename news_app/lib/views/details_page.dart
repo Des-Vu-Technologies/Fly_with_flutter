@@ -9,26 +9,27 @@ class DetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("News App", style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
-        ],
+      appBar: AppBar(
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "News App",
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
       ),
-      backgroundColor: Colors.white,
-      foregroundColor: Colors.black,
-      ),
-
       body: Card(
-        child: 
-        margin: EdgeInsets.all(8.0),
+        margin: const EdgeInsets.all(8.0),
         elevation: 0.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),
-          
         ),
       ),
-
     );
   }
 }
