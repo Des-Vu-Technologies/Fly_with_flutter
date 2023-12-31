@@ -32,4 +32,5 @@ So, as we can see, the fundamental objective of all these architectures is to ac
 5. [Independent of any external agency]()
 
 After discussing the most popular architectures and their roles, we'll build an architecture for every Flutter application based on C. Martin's (also known as Uncle Bob's) concept, which contains several architecture ideas.
+![1v6aaw5ye9ttb2zw6111](https://github.com/Des-Vu-Technologies/Fly_with_flutter/assets/59717384/42fa6289-9dcc-4b07-80d3-9db788988863)
 
