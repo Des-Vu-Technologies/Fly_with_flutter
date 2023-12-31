@@ -61,4 +61,5 @@ We will create a weather application which aims to visualize the weather of a sp
 
 
 ## Flutter Clean Architecture and data flow
+![fqeiepngw5aeco73r3wx](https://github.com/Des-Vu-Technologies/Fly_with_flutter/assets/59717384/a22837a1-7604-43d7-93df-b77ffaa8d99d)
 
