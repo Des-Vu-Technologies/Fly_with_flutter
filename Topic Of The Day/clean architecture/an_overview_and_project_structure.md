@@ -48,5 +48,8 @@ Let's start by integrating this architecture into a Flutter project.
 We will create a weather application which aims to visualize the weather of a specific city.
 
 - This application has two interfaces: one for displaying the details of the city's weather.
+  ![e8qi1itwj25uuehv346r](https://github.com/Des-Vu-Technologies/Fly_with_flutter/assets/59717384/003d3fa7-ea68-4acb-9dba-1247cc370dd0)
 
-- Another for adding a new city. This app will include the most basic functionalities, such as getting data from an API, storing data in a local database, handling errors, and so on:
+
+- Another for adding a new city. This app will include the most basic functionalities, such as getting data from an API, storing data in a local database, handling errors,and so on.
+![s4xb1jp3khtv95kx86eb](https://github.com/Des-Vu-Technologies/Fly_with_flutter/assets/59717384/3c8643b6-aa49-489e-8a44-53f800734591)
