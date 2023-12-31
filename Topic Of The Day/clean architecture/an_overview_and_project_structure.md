@@ -25,6 +25,7 @@ When designing your application architecture, it is essential that you respond t
 ![Alt Text](https://media.giphy.com/media/RgbxwGbdUNqtWWo79S/giphy.gif)
 
 So, as we can see, the fundamental objective of all these architectures is to achieve a clear separation of concerns. This is accomplished by dividing the software into distinct layers, typically including a layer for business rules and another for interfaces. Furthermore, each architecture establishes a well-defined system that is:
+
 1. [Independent of Frameworks]()
 2. [Testable]()
 3. [Independent of UI]()
@@ -34,3 +35,18 @@ So, as we can see, the fundamental objective of all these architectures is to ac
 After discussing the most popular architectures and their roles, we'll build an architecture for every Flutter application based on C. Martin's (also known as Uncle Bob's) concept, which contains several architecture ideas.
 ![1v6aaw5ye9ttb2zw6111](https://github.com/Des-Vu-Technologies/Fly_with_flutter/assets/59717384/42fa6289-9dcc-4b07-80d3-9db788988863)
 
+It should be noted that this architecture is not simply a folder structure that you can copy and paste into your project. It is the concept of separating your application into layers while adhering to Uncle Bob's Dependency Rule, which states that:
+
+`Nothing in an inner circle can know anything at all about something in an outer circle.`
+
+In other words, no variable, class or function declared in an outer circle can be mentioned in an inner circle.
+
+Let's start by integrating this architecture into a Flutter project.
+
+![Alt Text](https://media.giphy.com/media/wwg1suUiTbCY8H8vIA/giphy.gif)
+
+We will create a weather application which aims to visualize the weather of a specific city.
+
+- This application has two interfaces: one for displaying the details of the city's weather.
+
+- Another for adding a new city. This app will include the most basic functionalities, such as getting data from an API, storing data in a local database, handling errors, and so on:
