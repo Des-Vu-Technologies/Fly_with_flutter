@@ -97,4 +97,4 @@ The domain layer should be completely independent of all other layers. But how c
 ### Applied to the Weather App
 ![Alt text](image-2.png)
 
-n our case, the domain layer will be divided into three distinct layers: entities, repository contracts, and use cases.
+In our case, the domain layer will be divided into three distinct layers: entities, repository contracts, and use cases.
