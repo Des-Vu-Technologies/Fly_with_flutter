@@ -22,7 +22,7 @@ When designing your application architecture, it is essential that you respond t
 
 - The Clean architecture: Uncle Bob's architecture is based on the dependency inversion principle to define boundaries between high-level and low-level components. Furthermore, this architecture attempts to combine all previous architectures into a single actionable idea.
 
-![Alt Text](https://media.giphy.com/media/RgbxwGbdUNqtWWo79S/giphy.gif)
+![](https://media.giphy.com/media/RgbxwGbdUNqtWWo79S/giphy.gif)
 
 So, as we can see, the fundamental objective of all these architectures is to achieve a clear separation of concerns. This is accomplished by dividing the software into distinct layers, typically including a layer for business rules and another for interfaces. Furthermore, each architecture establishes a well-defined system that is:
 
@@ -43,7 +43,7 @@ In other words, no variable, class or function declared in an outer circle can b
 
 Let's start by integrating this architecture into a Flutter project.
 
-![Alt Text](https://media.giphy.com/media/wwg1suUiTbCY8H8vIA/giphy.gif)
+![](https://media.giphy.com/media/wwg1suUiTbCY8H8vIA/giphy.gif)
 
 We will create a weather application which aims to visualize the weather of a specific city.
 
@@ -64,7 +64,7 @@ We'll use the Provider technique for state management in this project, as seen i
 The above image also represents the data flow of each user-triggered event. In fact, when a user interacts with the Widget, we communicate their action to the Provider class, which then connects to the useCase to retrieve the action's result. Following that, the useCase communicates with the Repository class in order to obtain the solution from a remote or local DataSource.
 
 So, to begin implementing these layers, let's divide our project into subfolders.
-![Alt text](image.png)
+![Clean Architecture](image.png)
 We create two subfolders in the lib folder.
 
 - The first is called “core”, and it contains all of the shared and basic components, as well as the implementation of core features such as dependency injection.
@@ -79,7 +79,7 @@ This layer, as its name implies, is in charge of presenting data to the user via
 
 ### Applied to the Weather App
 
-![Alt text](image-1.png)
+![Folder Structre](image-1.png)
 Every interface in our case will have two subfolders, one for the view file and the other for its widgets. We also include the provider file.
 
 ### Domain
@@ -95,6 +95,21 @@ The domain layer should be completely independent of all other layers. But how c
 **Repository**: Serves as a single source of truth, separating the logic that retrieves data and maps it to the entity model. This class collects data from various sources (REST APIs, local databases, cache, etc.) and provides it to the rest of the app. Other components don't need to know where the data comes from; they simply consume it.
 
 ### Applied to the Weather App
+
 ![Alt text](image-2.png)
 
 In our case, the domain layer will be divided into three distinct layers: entities, repository contracts, and use cases.
+
+### Data
+
+This layer is responsible for data retrieval from multiple sources. It consists of a repository class that implements the domain contract and determines whether to return fresh or cached data and when to cache it. Additionally, the data source class handles fetching data from a specific source, typically a remote API or local database.
+
+![Data Layer](image-3.png)
+
+### Applied to the Weather App
+
+![Alt text](image-4.png)
+
+Three layers will make up our data layer: datasources, implementations of repositories, and models. Due to the fact that every data source delivers it, we have the models folder rather than entities. In fact, each model is responsible for converting unstructured data (JSON, etc.) into Dart objects by using certain methods (fromJSON, toJSON, etc.).
+
+![](https://media.giphy.com/media/shIRdgYzujbZC/giphy.gif)
