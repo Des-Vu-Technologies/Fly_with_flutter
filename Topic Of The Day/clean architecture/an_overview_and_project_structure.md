@@ -113,3 +113,6 @@ This layer is responsible for data retrieval from multiple sources. It consists 
 Three layers will make up our data layer: datasources, implementations of repositories, and models. Due to the fact that every data source delivers it, we have the models folder rather than entities. In fact, each model is responsible for converting unstructured data (JSON, etc.) into Dart objects by using certain methods (fromJSON, toJSON, etc.).
 
 ![](https://media.giphy.com/media/shIRdgYzujbZC/giphy.gif)
+
+# Next up
+After exploring the structure of the weather app, we'll start implementing the domain, which is the most independent layer: See Next
