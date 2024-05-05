@@ -1,7 +1,7 @@
 # Principles of Conventional Software Engineering
 The principles of conventional software engineering are like the "rules of the road" for building computer programs. They're based on years of trial and error in the software industry.
 
-Back in the day, making software was a bit chaotic. Projects often ran late, cost too much, or didn't work right. So, people started looking for ways to do it better.
+Back in the day, making software was a bit confusing. Projects often ran late, cost too much, or didn't work right. So, people started looking for ways to do it better.
 
 These principles cover a bunch of important ideas, from figuring out what users need to making sure the software stays good over time.
 
